@@ -45,7 +45,6 @@ public class Card {
                  deck[count] = new Card(face1, suit1);
              //    System.out.println(deck[count]);
                  ++count;
-
              }
          }
          list = Arrays.asList(deck);
@@ -65,6 +64,7 @@ public class Card {
      public static void main(String[] args) {
          DeckOfCards cards = new DeckOfCards();
          cards.printCards();
+
      }
 
  }
