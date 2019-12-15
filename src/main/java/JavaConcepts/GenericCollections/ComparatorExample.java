@@ -1,11 +1,11 @@
 package JavaConcepts.GenericCollections;
 
-import sun.font.FontRunIterator;
+
 
 import java.util.Arrays;
 import java.util.Comparator;
 
-public class ComparatorExample  implements Comparable<ComparatorExample> {
+public class ComparatorExample implements Comparable<ComparatorExample> {
         private String fruitName;
         private String fruitDesc;
         private int quantity;
@@ -26,7 +26,7 @@ public class ComparatorExample  implements Comparable<ComparatorExample> {
         public void setQuantity(int quantity) { this.quantity = quantity; }
 
         @Override
-        public int compareTo(JavaConcepts.GenericCollections.ComparatorExample compareFruits) {
+        public int compareTo(ComparatorExample compareFruits) {
             int compareQuantity = compareFruits.getQuantity();
             //return this.quantity-compareQuantity;
             return this.quantity-compareQuantity;
@@ -43,7 +43,7 @@ public class ComparatorExample  implements Comparable<ComparatorExample> {
         };
 
         public static void main(String[] args) {
-            ComparatorExample[] fruits = new JavaConcepts.GenericCollections.ComparatorExample[5];
+            ComparatorExample[] fruits = new ComparatorExample[5];
 
             ComparatorExample pineApple = new ComparatorExample("Pineapple", "Pineapple Description", 70);
             ComparatorExample apple = new ComparatorExample("Apple", "Apple Description", 100);
@@ -65,7 +65,7 @@ public class ComparatorExample  implements Comparable<ComparatorExample> {
 
 
             int i=0;
-            for (JavaConcepts.GenericCollections.ComparatorExample fruit: fruits) {
+            for (ComparatorExample fruit: fruits) {
                 System.out.println("fruits "+ ++i +" : "+fruit.getFruitName()+ ", Quantity : "+ fruit.getQuantity());
             }
         }

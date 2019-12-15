@@ -1,7 +1,6 @@
 package WarmUp;
 
-import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
-import org.omg.PortableServer.THREAD_POLICY_ID;
+
 
 public class ThreadsExample {
 
