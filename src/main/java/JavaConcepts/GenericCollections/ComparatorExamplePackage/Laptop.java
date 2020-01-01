@@ -1,5 +1,9 @@
 package JavaConcepts.GenericCollections.ComparatorExamplePackage;
 
+import JavaConcepts.Interfaces.A;
+import JavaConcepts.Interfaces.MyClass;
+import JavaConcepts.Interfaces.TestClass;
+import JavaConcepts.Interfaces.TestInterface;
 import WarmUp.ArrayListExample;
 
 import java.util.*;
@@ -69,14 +73,33 @@ class Runner {
      //  laptopList.sort(Laptop.com);
 
 //        Collections.sort(laptopList, new FunctionComparator<>(new CompareFunction <Laptop>() {
-//            @Override
-//            public Comparable apply(Laptop object) {
-//                return object.getName();
-//            }
-//        }));
+////            @Override
+////            public Comparable apply(Laptop object) {
+////                return object.getName();
+////            }
+////        }));
+////
+        Collections.sort(laptopList, new A<>(new MyClass<Laptop>() {
+                    @Override
+                    public Comparable testCompare(Laptop object) {
+                        return object.getRam();
+                    }
+                })
+                );
 
 
-            Collections.sort(laptopList, FunctionComparator.createGetterComparator(Laptop.class, "getPrice"));
+//Collections.sort(laptopList, new TestClass<>(new TestInterface<Laptop>() {
+//
+//
+//    @Override
+//    public Comparable test(Laptop object) {
+//        return object.getPrice();  }
+//}));
+
+
+
+
+    //        Collections.sort(laptopList, FunctionComparator.createGetterComparator(Laptop.class, "getPrice"));
 
         System.out.println(laptopList);
 

@@ -55,5 +55,4 @@ public class Employee {
         return String.format ("%-8s %8s %8.2f   %s", getFirstName(), getLastName(), getSalary(), getDepartment());
     }
 
-
 }
