@@ -1,9 +1,12 @@
 package JavaConcepts.GenericsErasure;
 
+import java.lang.reflect.Array;
 import java.text.Collator;
 import java.text.ParseException;
 import java.text.RuleBasedCollator;
+import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.List;
 import java.util.Locale;
 
 public class Ex <E,K> {
@@ -67,7 +70,15 @@ public class Ex <E,K> {
         int result1 = ruleBasedCollator.compare("a", "b");
         System.out.println(result1);
 
-        
+
+        List<Integer> intList = new ArrayList<Integer>();
+        List <Number> numbers = new ArrayList<>();
+        List <? super Integer> supInteger = new ArrayList<>();
+
+        List<? super Number> numList = new ArrayList<>();
+        supInteger=numList;
+
+
 
 
         try {

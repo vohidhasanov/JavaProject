@@ -1,6 +1,7 @@
 package JavaConcepts.GenericCollections.FlatMapExample;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -40,6 +41,7 @@ public class Human {
         List <String> petName1 = humans.stream()
                 .map(human -> human.getPets())
                 .flatMap(pets -> pets.stream())
+    //            .flatMap(Collection::stream)
 //                .flatMap(human->human.getPets().stream())  // Compact variant
                 .collect(Collectors.toList());
         System.out.println(petName1);

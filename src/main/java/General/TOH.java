@@ -82,10 +82,10 @@ public class TOH {
             int i, total_number_of_moves;
             char s='S', d='D', a='A';
             //If number of disks is even then interchange destination pole and auxilarity pole
-            if (num_of_disks%2==0) {
-                char temp =d;
-                d=a;
-                a=temp;
+            if (num_of_disks %2 == 0) {
+                char temp= d;
+                d = a;
+                a = temp;
             }
             total_number_of_moves = (int)(Math.pow(2, num_of_disks)-1);
 
@@ -101,13 +101,11 @@ public class TOH {
                 if (i % 3 == 0) moveDisksBetweenTwoPolews(aux, dest, a, d);
             }
 
-
-
-
         }
 
+
     public static void main(String[] args) {
-        int numberOfDisks = 3;
+        int numberOfDisks = 4;
 
         TOH ob = new TOH();
         Stack src, dest, aux;
@@ -117,6 +115,7 @@ public class TOH {
         aux = ob.createStack(numberOfDisks);
 
         ob.tohIterative(numberOfDisks, src, aux, dest);
+        
     }
 
 }

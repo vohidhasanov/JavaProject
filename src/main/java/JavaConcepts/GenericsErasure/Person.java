@@ -41,10 +41,6 @@ public class Person <T> {
         }
         return people.size();
     }
-
-
-
-
 }
 
 class Employee extends Person {

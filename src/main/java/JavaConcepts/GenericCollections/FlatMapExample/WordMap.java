@@ -17,6 +17,8 @@ public class WordMap {
                 .collect(Collectors.toList());
 
         System.out.print(lst2);
+        System.out.println();
+
 
        for (String s: lst2) {
            System.out.printf("%s",s);

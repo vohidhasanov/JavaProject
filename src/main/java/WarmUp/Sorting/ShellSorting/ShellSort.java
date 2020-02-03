@@ -7,12 +7,12 @@ public class ShellSort {
 
     public static void shellSort (int[] arr) {
         int temp, inner, outer;
-        int interval = 1;
+        int interval = arr.length / 2;
 
-        while (interval <= arr.length / 2) {
-            //  while (interval > 0) {
-            interval = (interval * 2) + 1;
-        }
+//        while (interval <= arr.length / 2) {
+//            //  while (interval > 0) {
+//            interval = (interval * 2) + 1;
+//        }
 
         while (interval > 0)
         {
@@ -20,7 +20,7 @@ public class ShellSort {
             {
                 temp = arr[outer];
                 inner = outer;
-              while (inner > interval - 1 && arr[inner - interval] >= temp)
+              while (inner > interval-1 && arr[inner - interval] >= temp) //while (inner > interval - 1 && arr[inner - interval] >= temp)
                 {
                     arr[inner] = arr[inner - interval];
                     inner -= interval;

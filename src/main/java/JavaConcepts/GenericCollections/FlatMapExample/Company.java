@@ -47,18 +47,31 @@ public class Company {
         return persons;
     }
 
+    @Override
+    public String toString() {
+        return "Company{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", gender=" + gender +
+                ", dob=" + dob +
+                ", income=" + income +
+                '}';
+    }
+
     public static void main(String[] args) {
     Map <Gender, Map<Object, String>> personsByGenderAndDobMonth =
                 Company.persons().stream()
                 .collect(Collectors.groupingBy(Company::getGender,
                         Collectors.groupingBy(p->p.getDob().getMonth(),
+                        //Collectors.groupingBy(Company::getDob,
                         Collectors.mapping(Company::getName, Collectors.joining(", "))))
+
                 );
 
         System.out.println(personsByGenderAndDobMonth);
 
 
-    Map<Gender, Map<Object, String>> personsByGenderandByName =
+    Map<Gender, Map<Object, String>> personsByGenderandByName1 =
             Company.persons().stream()
                     .collect(Collectors.groupingBy(Company::getGender,
                             Collectors.groupingBy(m->m.getName(),
@@ -66,11 +79,7 @@ public class Company {
                             )));
 
 
-   //     System.out.println(personsByGenderandByName);
-
-
-
-
+        System.out.println(personsByGenderandByName1);
 
 
 
