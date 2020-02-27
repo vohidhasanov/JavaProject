@@ -2,9 +2,12 @@ import JSON.Name;
 import JSON.Student;
 import com.jsoniter.JsonIterator;
 import com.jsoniter.ValueType;
+
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
+import java.util.Collections;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -52,6 +55,12 @@ public class testJson {
 
         assertEquals(name.getFirstName(), "Joe");
         assertEquals(name.getLastName(), "Blogg");
+    }
+
+    @Test
+    public void testColl() {
+
+
     }
 
 

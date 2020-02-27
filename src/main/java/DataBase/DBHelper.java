@@ -21,7 +21,6 @@ public class DBHelper {
     }
 
     private DBHelper () {
-
         try {
             Class.forName("org.sqlite.JDBC");
           //  DriverManager.registerDriver(new JDBC());

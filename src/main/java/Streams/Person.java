@@ -12,18 +12,21 @@ public class Person {
     private String lastName;
     private List<Pet> pets = new ArrayList<>();
 
+
     public Person(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
+
     }
 
     public Person addPet(PetType cat, String name, int age) {
-        pets.add(new Pet(cat , name, age));
+        pets.add(new Pet(cat, name, age));
         return this ;
     }
 
     public boolean hasPets (PetType petType) {
-        return pets.stream().anyMatch(p -> p.getType().equals(petType));
+        return  pets.stream()
+                        .anyMatch(p -> p.getType().equals(petType));
     }
 
     public boolean isNamed (String string) {
@@ -34,7 +37,7 @@ public class Person {
         return pets;
     }
 
-    public Collection<PetType> getPetType (){
+    public Collection <PetType> getPetType (){
         return pets.stream()
                 .map(pet -> pet.getType()).collect(Collectors.toSet());
     }

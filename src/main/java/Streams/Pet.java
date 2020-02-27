@@ -5,8 +5,8 @@ public class Pet {
     private String name;
     private int age;
 
-    public Pet(PetType type, String name, int age) {
-        this.type = type;
+    public Pet(PetType cat, String name, int age) {
+        this.type = cat;
         this.name = name;
         this.age = age;
     }

@@ -1,24 +1,21 @@
 package Streams;
 
+import oracle.sql.Mutable;
+
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class StreamTester {
-//    private List<Person> people;
-//
-//    @Override
-//    public String toString() {
-//        return "StreamTester{" +
-//                "people=" + people +
-//                '}';
-//    }
+    Mutable  people;
 
     public static void main(String[] args) {
         List<Person> persons = createData();
 
+
         // do any of the person have a cat?
         boolean result = persons.stream().anyMatch(person -> person.hasPets(PetType.CAT));
+
         // how many people have cat?
         long catCount = persons.stream().filter(person -> person.hasPets(PetType.CAT)).count();
         // who has cat>
@@ -27,14 +24,14 @@ public class StreamTester {
         List<Person> peopleWithOutCats = persons.stream().filter(person -> !person.hasPets(PetType.CAT)).collect(Collectors.toList());
         // partion people with/without cats
         Map<Boolean, List<Person>> catsAndNoCats = persons.stream().collect(Collectors.partitioningBy(person -> person.hasPets(PetType.CAT)));
-        System.out.println("People who have and don't have cats: "+catsAndNoCats);
+        System.out.println("People who have and don't have cats: " + catsAndNoCats);
         // get the name of Tim cats
         Person person = persons.stream().filter(each -> each.isNamed("Tim Taller")).findFirst().get();
         boolean test = ("Dolly & Spot").equals(person.getPets().stream().map(Pet::getName).collect(Collectors.joining(" & ")));
         System.out.println("Tim has Dolly & Spot: " + test);
         // get the set of all pet types
         Set<PetType> allPetTypes = persons.stream().flatMap(p -> p.getPetType().stream()).collect(Collectors.toSet());
-       // System.out.println(allPetTypes);
+        // System.out.println(allPetTypes);
         //group people by their last name
         Map<String, List<Person>> byLastName = persons.stream().collect(Collectors.groupingBy(Person::getLastName));
         Map<String, List<Person>> byLastNameTargetBag = persons.stream().collect(Collectors.groupingBy(Person::getLastName));
@@ -48,9 +45,12 @@ public class StreamTester {
         // count by pet age
         Map<Integer, Long> counts = Collections.unmodifiableMap(persons.stream().flatMap(p -> p.getPets().stream())
                 .collect(Collectors.groupingBy(Pet::getAge, Collectors.counting())));
-        System.out.println("Count by pet age: "+counts);
+
+        System.out.println("Count by pet age: " + counts);
 
     }
+
+
     public static List <Person> createData() {
         return Arrays.asList(
                 new Person ("Mary", "Smith").addPet(PetType.CAT,"Tabby", 2),
